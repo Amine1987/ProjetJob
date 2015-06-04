@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @author Amine Chikhaoui
+ * @date 3 juin 2015
+ * 
+ * 
  */
 package projetjob;
 import java.lang.*;
@@ -12,15 +13,13 @@ import java.util.logging.Logger;
 ;
 /**
  *
- * @author Amine
+ * 
+ * Classe principale, ouvre une connexion sur le serveurSQL 2008 et extait les
+ * données à l'intérieur des tables créées.
  */
 public class ProjetJob {
   
- /**
-		 * @param args
-     * @throws java.sql.SQLException
-     * @throws java.lang.ClassNotFoundException
-		 */
+ 
 		public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, InterruptedException {
 		String dbName = "test";
         String serverip="localhost";
@@ -52,7 +51,7 @@ public class ProjetJob {
                     
                         while ( resultat.next()) {
                             size++;
-                           for (int i=0; i<5;++i){
+                           for (int i=0; i<size;++i){
                             System.out.println( resultat.getString(1) + ", " );
                             Thread.sleep(2000);
                             System.out.println( resultat.getString(2) + ", " );
