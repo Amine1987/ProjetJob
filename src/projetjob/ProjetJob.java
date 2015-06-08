@@ -5,12 +5,19 @@
  * 
  */
 package projetjob;
-import java.lang.*;
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import static java.lang.String.format;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.csv.*;
 
-;
+
 /**
  *
  * 
@@ -20,13 +27,13 @@ import java.util.logging.Logger;
 public class ProjetJob {
   
  
-		public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, InterruptedException {
+		public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, InterruptedException, IOException {
 		String dbName = "test";
         String serverip="localhost";
         String serverport="1433";
         String url = "jdbc:sqlserver://"+serverip+"\\SQLEXPRESS:"+serverport+";databaseName="+dbName+"";
                     try {
-                        //Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                       
                         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
                     } catch (IllegalAccessException ex) {
                         Logger.getLogger(ProjetJob.class.getName()).log(Level.SEVERE, null, ex);
@@ -38,66 +45,72 @@ public class ProjetJob {
 				    Statement valeur = conn.createStatement();
     String requete = "SELECT * FROM Client";
 
-    ResultSet resultat = null;
+   //ResultSet resultat = null;
+    ResultSet  resultat = valeur.executeQuery(requete);
     int size= 0;
-
-                    try {
-                        resultat = valeur.executeQuery(requete);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ProjetJob.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+    
+    
+    
+    File csvCreer= new File("test.csv");
+    
+  boolean bool= csvCreer.createNewFile();
+   
+  System.out.println("File created: "+bool);
+    //String sFilename="test.csv";
+       
 
                     try {
                     
-                        while ( resultat.next()) {
-                            size++;
-                           for (int i=0; i<size;++i){
-                            System.out.println( resultat.getString(1) + ", " );
-                            Thread.sleep(2000);
-                            System.out.println( resultat.getString(2) + ", " );
-                             Thread.sleep(2000);
-                             System.out.println( resultat.getString(3) + ", " );
-                             Thread.sleep(2000);
+                        /*while ( resultat.next()) {
+                            size++;*/
+                           for (int i=1; i<size;++i){
+                           // System.out.println( resultat.getString(1) + ", " );
+                            //Thread.sleep(2000);
+                            //System.out.println( resultat.getString(2) + ", " );
+                            // Thread.sleep(2000);
+                            // System.out.println( resultat.getString(3) + ", " );
+                            // Thread.sleep(2000);
+                             
+                          FileWriter writer= new FileWriter(csvCreer);
+                          writer.append(resultat.getString(i));
+                          
+                          
                            }
-                                 
-                               Thread.sleep(2000);
-                        }   
+             
+                       // }   
                     }catch (SQLException ex) {
                         Logger.getLogger(ProjetJob.class.getName()).log(Level.SEVERE, null, ex);
                             }
                     
-                    }
-                }
-
-	 class baseDonnee{
-		 
-		 public  baseDonnee(){}
-		 
-	public void  Connexion (String connexion_db, String username, String password)
-	{
-
-
-		try
-        {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(
-             connexion_db, username,password);
-            System.out.println("connecté");
-            //System.out.println(username);
-            //System.out.println(password);
- 
+                             
+     
             
-             
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-	}
+       
+       
+        
+    
+    
+      
+                }
+                
+                
+                
+
+  
+  
+                   }
+
+              
+        
+            
+
+           
+
+
 	
 	
 	 
-	 }
+
 
     
 
