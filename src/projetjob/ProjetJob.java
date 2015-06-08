@@ -7,15 +7,16 @@
 package projetjob;
 
 
+import com.opencsv.CSVWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import static java.lang.String.format;
+//import static java.lang.String.format;
 
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.commons.csv.*;
+//import org.apache.commons.csv.*;
 
 
 /**
@@ -53,36 +54,35 @@ public class ProjetJob {
     
     File csvCreer= new File("test.csv");
     
-  boolean bool= csvCreer.createNewFile();
+  //boolean bool= csvCreer.createNewFile();
    
-  System.out.println("File created: "+bool);
+  //System.out.println("Fichier créé: "+bool);
     //String sFilename="test.csv";
-       
-
-                    try {
+                   CSVWriter ecriture = new CSVWriter(new FileWriter(csvCreer));
+     
+                                        
+            
+                        ecriture.writeAll(resultat, bool);
+                        
+                        ecriture.close();
+                        
+                        
+                        // for (int i=1; i<size;++i){
+                        // System.out.println( resultat.getString(1) + ", " );
+                        //Thread.sleep(2000);
+                        //System.out.println( resultat.getString(2) + ", " );
+                        // Thread.sleep(2000);
+                        // System.out.println( resultat.getString(3) + ", " );
+                        // Thread.sleep(2000);
+                        
+                        
+                        //writer.append(resultat.getString(i));
+                        
+                        
+                        //  }
+                    }
                     
-                        /*while ( resultat.next()) {
-                            size++;*/
-                           for (int i=1; i<size;++i){
-                           // System.out.println( resultat.getString(1) + ", " );
-                            //Thread.sleep(2000);
-                            //System.out.println( resultat.getString(2) + ", " );
-                            // Thread.sleep(2000);
-                            // System.out.println( resultat.getString(3) + ", " );
-                            // Thread.sleep(2000);
-                             
-                          FileWriter writer= new FileWriter(csvCreer);
-                          writer.append(resultat.getString(i));
-                          
-                          
-                           }
-             
-                       // }   
-                    }catch (SQLException ex) {
-                        Logger.getLogger(ProjetJob.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                    
-                             
+                            
      
             
        
@@ -98,7 +98,7 @@ public class ProjetJob {
 
   
   
-                   }
+                   
 
               
         
