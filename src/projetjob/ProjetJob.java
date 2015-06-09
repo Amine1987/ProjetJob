@@ -4,7 +4,7 @@
  * 
  * 
  */
-package projetjob;
+/*package projetjob;
 
 
 import com.opencsv.CSVWriter;
@@ -27,7 +27,7 @@ import org.apache.commons.net.*;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
-
+*/
 
 /**
  *
@@ -35,10 +35,10 @@ import org.apache.commons.net.ftp.FTPReply;
  * Classe principale, ouvre une connexion sur le serveurSQL 2008 et extait les
  * données à l'intérieur des tables créées.
  */
-public class ProjetJob {
+//ublic class ProjetJob {
   
  
-		public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, InterruptedException, IOException {
+		/*public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, InterruptedException, IOException {
 		
                     
                     
@@ -91,7 +91,7 @@ public class ProjetJob {
                         } catch (SQLException ex) {
                             Logger.getLogger(ProjetJob.class.getName()).log(Level.SEVERE, null, ex);
                         }
-    int size= 0;
+  
 
   
    
@@ -251,7 +251,7 @@ String nomFile = Datestring;
     
     
       
-                }
+                }*/
                 
                 
                 
