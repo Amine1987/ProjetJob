@@ -172,46 +172,12 @@ String nomFile = Datestring;
             System.out.println("Connecté au serveur");
         }
                        
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
+        
                        
                     }
             
         };
-        temps.schedule(tempsschedule,1000, 5*1000);
+        temps.schedule(tempsschedule,1000, 5184000*1000);
 }
 }              
                             
